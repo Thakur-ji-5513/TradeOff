@@ -1,0 +1,131 @@
+/* =========================
+AUTH PAGE CONTAINER
+========================= */
+
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+/* =========================
+AUTH CARD
+========================= */
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(139, 92, 246, 0.05);
+
+  padding: 32px 28px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* =========================
+TEXT
+========================= */
+
+.auth-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.auth-subtext {
+  font-size: 14px;
+  color: #a3a3a3;
+}
+
+/* =========================
+FORM
+========================= */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 12px;
+  color: #666;
+}
+
+.form-group input {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+
+  padding: 12px 14px;
+  border-radius: 8px;
+
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* =========================
+BOTTOM TEXT
+========================= */
+
+.auth-switch {
+  font-size: 13px;
+  color: #888;
+  text-align: center;
+}
+
+.auth-switch span {
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-switch span:hover {
+  opacity: 0.8;
+}
+
+.form-group input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+.auth-error {
+  font-size: 13px;
+  color: #ef4444; /* subtle red */
+}
+
+.auth-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-logo {
+  height: 52px;
+  width: 52px;
+  object-fit: contain;
+}
+
+.brand {
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 24px;
+}
