@@ -30,3 +30,5 @@ app.listen(PORT, () => {
 
 // rudra@gmail.com
 //pass: hello123
+
+export default app;
