@@ -12,7 +12,8 @@ const app = express();
 app.use(cors())
 const PORT = process.env.PORT || 8080;
 
-ConnectDb();
+// Top level await forces Vercel to establish DB connection before booting Express 
+await ConnectDb();
 
 app.use(express.json());
 app.use("/api/auth", authRouter);

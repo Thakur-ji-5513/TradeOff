@@ -31,7 +31,13 @@ export const registerUser = async (data) => {
     body: JSON.stringify(data),
   });
 
-  return res.json();
+  const result = await res.json();
+
+  if (!res.ok) {
+    throw new Error(result.message || "Registration failed");
+  }
+
+  return result;
 };
 
 export const getProfile = async () => {
