@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { registerUser, loginUser } from "../api/auth";
 import { useNavigate } from "react-router-dom";
+import { FiLoader } from "react-icons/fi";
 import "./css/Signup.css";
 import logoIcon from "../assets/date-time-setting.svg";
 
 export default function Signup() {
   const [currentStep, setCurrentStep] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -31,6 +33,7 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       await registerUser(form);
       const loginData = await loginUser({ email: form.email, password: form.password });
@@ -38,6 +41,8 @@ export default function Signup() {
       navigate("/dashboard"); 
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -149,8 +154,16 @@ export default function Signup() {
                 />
               </div>
               <div className="action-buttons split">
-                <button className="btn-secondary" onClick={prevStep}>Back</button>
-                <button className="btn-primary" onClick={handleSubmit}>Submit</button>
+                <button className="btn-secondary" onClick={prevStep} disabled={isLoading}>Back</button>
+                <button className="btn-primary" onClick={handleSubmit} disabled={isLoading}>
+                  {isLoading ? (
+                    <>
+                      <FiLoader className="spinner" /> Creating account...
+                    </>
+                  ) : (
+                    "Submit"
+                  )}
+                </button>
               </div>
             </div>
 

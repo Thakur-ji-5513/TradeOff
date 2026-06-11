@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { calculateTradeoff, createTradeoff } from "../api/tradeoff";
+import { FiLoader } from "react-icons/fi";
 import Navbar from "../components/Navbar";
 import "./css/CheckPrice.css";
 
@@ -9,13 +10,19 @@ export default function CheckPrice() {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [result, setResult] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
-    const data = await calculateTradeoff({ price: Number(price) });
-    if (data.tradeoff) {
-      setResult(data.tradeoff);
+    setIsLoading(true);
+    try {
+      const data = await calculateTradeoff({ price: Number(price) });
+      if (data.tradeoff) {
+        setResult(data.tradeoff);
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -70,8 +77,14 @@ export default function CheckPrice() {
             </select>
           </div>
 
-          <button className="check-btn" onClick={handleSubmit}>
-            Calculate TradeOff
+          <button className="check-btn" onClick={handleSubmit} disabled={isLoading}>
+            {isLoading ? (
+              <>
+                <FiLoader className="spinner" /> Calculating...
+              </>
+            ) : (
+              "Calculate TradeOff"
+            )}
           </button>
         </div>
 
