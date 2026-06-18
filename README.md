@@ -1,7 +1,7 @@
 # TradeOff
 
-Hey people, so this is a personal project aimed to showcase my MERN skills while also working on a solving a problem i personally faced-
-At times when we(or at least I) get paid in the early career we might end up making decisions which are not so great for our finance or what they call
+Hey people, so this is a personal project aimed to showcase my MERN skills while also working on a solving a problem i personally faced <br> <br>
+At times when we (or at least I) get paid in the early career we might end up making decisions which are not so great for our finance or what they call
 >**"Poor spending habit"**
 
 So that became my inspiration for:
@@ -37,10 +37,10 @@ The goal is psychological clarity — not complex financial planning.
 
 ---
 
-## 🚀 Features (MVP)
-
-- Minimal onboarding flow  
-- Automatic hourly value calculation  
+## 🚀 Current Features 
+  
+- Automatic hourly value calculation
+- Get roasted based on your purchases
 - Time-based purchase impact analysis  
 - 24-hour pause mechanism  
 - Pending decisions tracking  
@@ -88,21 +88,7 @@ TradeOff/
 
 ---
 
-## 📌 Why This Project?
-
-TradeOff focuses on behavioral decision-making rather than traditional budgeting tools.
-
-It demonstrates:
-
-- Full-stack development using MERN  
-- API route structuring and database modeling  
-- React component architecture  
-- Product-focused UX thinking  
-- Clean, scalable project setup  
-
----
-
 
 ## 📄 License
 
-This project is built for educational and portfolio purposes.
+This project is built for educational and portfolio purposes, open to contributions though.
