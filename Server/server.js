@@ -3,9 +3,15 @@ import ConnectDb from "./config/db.js";
 import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
 import tradeoffRouter from "./routes/tradeoff.js";
+import roastRouter from "./routes/roast.js";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
-dotenv.config();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: path.resolve(__dirname, ".env") });
+
+console.log("GEMINI_API_KEY loaded:", process.env.GEMINI_API_KEY ? "Yes (length: " + process.env.GEMINI_API_KEY.length + ")" : "No");
 
 const app = express();
 
@@ -18,6 +24,7 @@ await ConnectDb();
 app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/tradeoff", tradeoffRouter);
+app.use("/api/roast", roastRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');

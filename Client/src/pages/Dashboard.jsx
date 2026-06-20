@@ -3,11 +3,13 @@ import { getMyTradeoffs, deleteTradeoff, updateTradeoffStatus } from "../api/tra
 import { getProfile } from "../api/auth";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import RoastChatWidget from "../components/RoastChatWidget";
 import "./css/Dashboard.css";
 
 export default function Dashboard() {
   const [tradeoffs, setTradeoffs] = useState([]);
   const [user, setUser] = useState(null);
+  const [isRoastOpen, setIsRoastOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -149,10 +151,10 @@ export default function Dashboard() {
 
               <button
                 className="secondary-btn generate-btn"
-                onClick={() => alert("under development!")}
+                onClick={() => setIsRoastOpen(true)}
               >
                 <span className="btn-content">
-                  <span>Generate Summary</span>
+                  <span>Get Roasted 🔥</span>
                   <svg height="20" viewBox="0 -960 960 960" width="20">
                     <path
                       fill="#a78bfa"
@@ -230,6 +232,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+      <RoastChatWidget isOpen={isRoastOpen} onClose={() => setIsRoastOpen(false)} />
     </>
   );
 }
