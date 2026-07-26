@@ -14,8 +14,10 @@ export default function Dashboard() {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.time("dashboard-data-fetch");
       const data = await getMyTradeoffs();
       const userData = await getProfile();
+      console.timeEnd("dashboard-data-fetch");
       setUser(userData);
       setTradeoffs(data.result);
     };
