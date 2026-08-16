@@ -25,4 +25,9 @@ const tradeoffSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
+tradeoffSchema.index({
+  createdBy: 1,
+  createdAt: -1,
+});
+
 export default mongoose.model("Tradeoff", tradeoffSchema);
